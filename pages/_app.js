@@ -104,6 +104,35 @@ const App = ({ Component, pageProps }) => {
           code, pre, code[class*="language-"], pre[class*="language-"] {
             font-size: 1.6rem;
           }
+
+          [data-tooltip] {
+            position: relative;
+          }
+          [data-tooltip]:before {            
+            align-items: center;
+            background: var(--white);
+            border: 1px solid var(--black);
+            border-radius: 5px;
+            bottom: 0;
+            color: var(--black);
+            content: attr(data-tooltip);
+            display: flex;
+            height: 0;
+            left: 0;
+            opacity: 0;
+            padding: .3rem;
+            position: absolute;
+            trasition: all .5s ease-in;
+            width: 0;
+          }
+          [data-tooltip]:hover:before {        
+            opacity : 1;
+            min-width: 5rem;
+            min-height: 4.2rem;
+            bottom: -6rem;
+            left: -0.5rem;
+          }
+
         `}</style>
 
     </>

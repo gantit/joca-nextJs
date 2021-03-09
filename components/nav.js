@@ -4,6 +4,7 @@ import Logo from 'assets/icons/logo'
 import Blog from 'assets/icons/blog'
 import Git from 'assets/icons/git'
 import Twitter from 'assets/icons/twitter'
+import About from 'assets/icons/about'
 
 const Nav = () => (
   <nav>
@@ -15,15 +16,20 @@ const Nav = () => (
       </li>
       <li>
         <ul>
-          <li className="icon blog">
+          <li className="icon blog" data-tooltip="Sobre mi" >
+            <Link href="/about">
+              <a><About /></a>
+            </Link>
+          </li>
+          <li className="icon blog" data-tooltip="Ir a mi blog" >
             <Link href="/blog">
               <a><Blog /></a>
             </Link>
           </li>
-          <li className="icon git">
+          <li className="icon git" data-tooltip="Este es mi github">
             <a href='https://github.com/gantit' atl="Logo github.com" ><Git /></a>
           </li>
-          <li className="icon twitter">
+          <li className="icon twitter" data-tooltip="Este es mi twitter">
             <a href='https://twitter.com/Gantit' atl="Logo twitter.com"><Twitter /></a>
           </li>
         </ul>

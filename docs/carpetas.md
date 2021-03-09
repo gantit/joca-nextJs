@@ -179,8 +179,8 @@ utils/
   ...
 ```
 
-<div style="width:50%; margin:0 auto;">
-  <img src="https://media.giphy.com/media/2rqEdFfkMzXmo/giphy.gif" width="100%"/>
+<div style="width:400px; margin:0 auto;">
+  <img src="https://media.giphy.com/media/2rqEdFfkMzXmo/giphy.gif" width="100%" height="100%" alt="abre tu mente"/>
 </div>
 
 Teniendo en cuenta esto, las carpetas de `containers o views` dejarían de existir, pero nos surge una duda
