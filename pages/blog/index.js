@@ -52,9 +52,6 @@ const Doc = ({ slugs }) => {
         article:hover p {
           transform: translateX(5px)
         }
-
-        
-
         h1 a {
           color: inherit;
         }

@@ -21,12 +21,13 @@ const Back = ({ url = '/' }) => (
       a.icon_back :global(svg){
         background: var(--white);
         margin-right: 10px;
+        margin-left: -5px;
+        padding-left: 5px;
         z-index: 1;
       }
       a.icon_back:hover :global(svg){
         margin-right: 2px;
         animation: none;
-        transform: translateX(2px)
       }
       a.icon_back span{
         display: block;
@@ -48,6 +49,7 @@ const Back = ({ url = '/' }) => (
           border-radius: 10px;
           border: 1px solid var(--black);
           padding: 5px;
+          transition: all .5s ease;
         }
       }
       

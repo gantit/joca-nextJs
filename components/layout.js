@@ -26,7 +26,7 @@ const Layout = ({ children, meta }) => {
           dangerouslySetInnerHTML={{ __html: children }}
         />
       </div>
-      <style jsx global>{`
+      <style jsx>{`
         .post {
           max-width: 1200px;
           margin: 1em auto;
