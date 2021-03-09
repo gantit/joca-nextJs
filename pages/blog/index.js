@@ -1,25 +1,69 @@
-import { Fragment } from 'react'
 import Link from 'next/link'
 import { getAllDocs } from 'lib/docs';
 
+import Back from 'components/back'
+
 const Doc = ({ slugs }) => {
   return (
-    <>
-      <Link href={`/`}><a>volver</a></Link>
-      { slugs.map(({ slug, meta: { description, title } }) => (
-        <Fragment key={slug}>
+    <div className="posts">
+      <Back url="/" />
+      <div className="posts-list">
+        {slugs.map(({ slug, meta: { description, title } }) => (
           <Link href={`/blog/${slug}`}>
             <a>
-              <h1>
-                {title}
-              </h1>
+              <article key={slug}>
+                <h1>
+                  {title}
+                </h1>
+
+                <p>{description}</p>
+              </article>
             </a>
           </Link>
+        ))}
+      </div>
+      <style jsx>{`
+        .posts {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .posts-list {
+          max-width: 800px;
+          margin: 0 auto;
+        }
 
-          <p>{description}</p>
-        </Fragment>
-      ))}
-    </>
+        article {
+          padding: 1rem;
+          margin-top: 1rem;
+          border-bottom: 1px solid var(--black);
+          transition: all .3s ease;
+        }
+        article p {
+          transition: all .3s ease;
+        }
+        article:hover {
+          border-bottom: 1px solid var(--primary);
+          border-left: 1px solid var(--primary);
+        }
+
+        article:hover h1{
+          color: var(--primary);
+        }
+        article:hover p {
+          transform: translateX(5px)
+        }
+
+        
+
+        h1 a {
+          color: inherit;
+        }
+        .posts {
+          position: relative;
+        }
+      `}</style>
+
+    </div>
   )
 }
 

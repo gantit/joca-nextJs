@@ -1,8 +1,8 @@
 {
   "name": "Joca.dev",
   "short_name": "Joca",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "var(--white);",
+  "background_color": "var(--white);",
   "description": "FrontEnd Developer",
   "display": "standalone",
   "orientation": "portrait-primary",

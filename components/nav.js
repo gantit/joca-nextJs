@@ -1,59 +1,81 @@
 import Link from 'next/link';
 
+import Logo from 'assets/icons/logo'
+import Blog from 'assets/icons/blog'
+import Git from 'assets/icons/git'
+import Twitter from 'assets/icons/twitter'
+
 const Nav = () => (
   <nav>
     <ul>
-      <li>
+      <li className="icon logo" >
         <Link href="/">
-          <a>Inicio</a>
-        </Link>
-      </li>
-      <li className="block">
-        <Link href="/blog">
-          <a>blog</a>
+          <a className="center"><Logo atl="Logo joca.dev" /> Joca.dev</a>
         </Link>
       </li>
       <li>
-        <a href='https://github.com/gantit'>GitHub</a>
-      </li>
-      <li>
-        <a href='https://twitter.com/Gantit'>Twitter</a>
+        <ul>
+          <li className="icon blog">
+            <Link href="/blog">
+              <a><Blog /></a>
+            </Link>
+          </li>
+          <li className="icon git">
+            <a href='https://github.com/gantit' atl="Logo github.com" ><Git /></a>
+          </li>
+          <li className="icon twitter">
+            <a href='https://twitter.com/Gantit' atl="Logo twitter.com"><Twitter /></a>
+          </li>
+        </ul>
       </li>
     </ul>
 
     <style jsx>{`
-      @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
-      :global(body) {
-        margin: 0;
-        font-family: 'Source Code Pro', -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
       nav {
-        background-color: #ffffff;
+        background-color: var(--white);;
         box-shadow: 0 1px 6px 0 rgb(0 0 0 / 12%);
-        height: 50px;
         position: sticky;
         text-align: center;
         top: 0;
         z-index: 5;
       }
-      ul {
+
+      .logo {
+        padding: 6px 0;
+      }
+
+      .logo .center {
+        font-size: 20px;
+      }
+      ul, .center {
+        align-items: center;
         display: flex;
         justify-content: space-between;
-        margin: 0;
-        line-height: 34px;
+        margin: 0 auto;
+        max-width: 1200px;
       }
       nav > ul {
-        padding: 4px 16px;
+        padding: 4px 0;
       }
       li {
         display: flex;
         padding: 6px 8px;
       }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
+
+      .logo :global(svg){
+        border-radius: 20px;
+        fill: var(--primary);
+        height: 40px;
+        width: 40px;
+      }
+
+      .logo:hover :global(svg){
+        animation: none;
+        border-radius: 20px;
+        fill: var(--black);
+        height: 40px;
+        trasition: fill 2s ease-out;
+        width: 40px;
       }
     `}</style>
   </nav>

@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import Link from 'next/link';
+
+import Back from "components/back";
 
 const Layout = ({ children, meta }) => {
   return (
@@ -19,18 +20,31 @@ const Layout = ({ children, meta }) => {
         <meta name="twitter:image" content={meta.cardImage} />
         <link rel="preload" href="https://unpkg.com/prismjs@1.23.0/themes/prism-tomorrow.css" rel="stylesheet" />
       </Head>
-      <Link href='/blog'><a>volver</a></Link>
-      <article
-        dangerouslySetInnerHTML={{ __html: children }}
-      />
+      <div className="post">
+        <Back url="/blog" />
+        <article
+          dangerouslySetInnerHTML={{ __html: children }}
+        />
+      </div>
       <style jsx global>{`
+        .post {
+          max-width: 1200px;
+          margin: 1em auto;
+        }
         article {
           max-width: 800px;
           margin: 1em auto;
         }
-        :not(pre) > code[class*="language-"], pre[class*="language-"] {
-          border-radius: 10px;
-          margin: 2em 0;
+
+        :global(.icon_back) {
+          position:sticky;
+          top: 80px;
+        }
+        @media (max-width: 1080px) {
+          :global(.icon_back) {
+            position:sticky;
+            top: 100%;
+          }
         }
       `}</style>
     </>
