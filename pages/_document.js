@@ -48,6 +48,11 @@ class MyDocument extends Document {
           `
             }}
           />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+            rel="stylesheet"
+          />
         </Head>
 
         <body>
@@ -55,7 +60,6 @@ class MyDocument extends Document {
           <NextScript />
         </body>
         <style jsx global>{`
-          @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
           :root {
             --primary: #ff9800;
             --secondary: #01a283;
