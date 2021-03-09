@@ -32,10 +32,11 @@ const Back = ({ url = '/' }) => (
       a.icon_back span{
         display: block;
         transition: all .3s ease;
+        transform: translateX(-200px);
       }
       a.icon_back:hover span{
         display: block;
-        transform: translateX(-200px);
+        transform: translateX(0);
       }
       a.icon_back:hover{
         color: var(--primary);
@@ -50,6 +51,9 @@ const Back = ({ url = '/' }) => (
           border: 1px solid var(--black);
           padding: 5px;
           transition: all .5s ease;
+        }
+        a.icon_back span{
+          transform: translateX(0);
         }
       }
       

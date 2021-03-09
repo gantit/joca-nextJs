@@ -1,5 +1,5 @@
 ---
-title: Rutas absolutas al importar componentes
+title: Importar componentes con rutas Absolutas
 published: true
 description: Las rutas de los ficheros y al importarlos.
 tags: javascript, modules, imports
@@ -18,7 +18,6 @@ Esto hace que a veces, llegar a detectar en qué carpeta esta ese componente, se
 {
   "compilerOptions": {
     "baseUrl": "."
-  }
 }
 ```
 
