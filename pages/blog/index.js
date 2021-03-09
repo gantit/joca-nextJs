@@ -9,7 +9,7 @@ const Doc = ({ slugs }) => {
       <Back url="/" />
       <div className="posts-list">
         {slugs.map(({ slug, meta: { description, title } }) => (
-          <Link href={`/blog/${slug}`}>
+          <Link href={`/blog/${slug}`} key={slug} >
             <a>
               <article key={slug}>
                 <h1>
@@ -35,14 +35,12 @@ const Doc = ({ slugs }) => {
         article {
           padding: 1rem;
           margin-top: 1rem;
-          border-bottom: 1px solid var(--black);
           transition: all .3s ease;
         }
         article p {
           transition: all .3s ease;
         }
         article:hover {
-          border-bottom: 1px solid var(--primary);
           border-left: 1px solid var(--primary);
         }
 
