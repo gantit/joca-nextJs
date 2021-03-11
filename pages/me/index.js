@@ -17,7 +17,7 @@ const Me = () => {
           layout="fixed"
         />
         <h1>Frontend Developer</h1>
-        <h2>Para programadores y programadoras que quieran dar un salto en su carrera desarrollando software.</h2>
+        <h2>Padre de dos jedis, entusiasta de las nuevas tecnologías.</h2>
       </section>
       <section className="chat">
         <div className="bar"></div>
@@ -47,10 +47,6 @@ const Me = () => {
         </div>
       </section>
       <style jsx>{`
-        .me {
-          max-width:1200px;
-          margin: 0 auto;
-        }
 
         .header {
           display: flex;
@@ -60,6 +56,8 @@ const Me = () => {
           margin: 0 auto;
           text-align: center;
           margin-bottom: 30px;
+          max-width:1200px;
+          margin: 0 auto;
         }
         .header > :global(div) {
           margin: 50px auto 20px;
@@ -71,11 +69,14 @@ const Me = () => {
         }        
         
         .chat {
-          display: flex;
           align-items: start;
+          display: flex;
           justify-content: center;
-          position: relative;
           margin-bottom: 10rem;
+          margin-top: -15rem;
+          overflow: hidden;
+          padding-top: 25rem;
+          position: relative;
         }
         .chat .bar {
           background-image: linear-gradient(50deg,#bdb22e,#ffd001 63%,#f5b400);
@@ -83,7 +84,7 @@ const Me = () => {
           left: 50%;
           margin-bottom: 100px;
           position: absolute;
-          top: 50%;
+          top: 70%;
           transform: translate(-50%,-50%) rotate(-8deg);
           width: 200%;
           z-index: -1;
@@ -113,6 +114,10 @@ const Me = () => {
           .chat :global(svg) {
             display: none;
           }
+        }
+        .details {
+          max-width:1200px;
+          margin: 0 auto;
         }
 
         .details h2{
