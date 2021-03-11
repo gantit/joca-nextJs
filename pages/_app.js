@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Nav from 'components/nav';
+
+import Layout from "components/layoutApp";
 
 import { pageview } from "lib/gtag";
 
@@ -10,7 +11,7 @@ const App = ({ Component, pageProps }) => {
     if (process.env.NODE_ENV === 'production') {
       pageview(url);
     } else {
-      console.log(`[GTAG- pageview] - ${url}`)
+      // console.log(`[GTAG- pageview] - ${url}`)
     }
   };
 
@@ -22,8 +23,7 @@ const App = ({ Component, pageProps }) => {
   }, [router.events]);
 
   return (
-    <>
-      <Nav />
+    <Layout>
       <Component {...pageProps} />
 
       <style global jsx>{`
@@ -107,13 +107,10 @@ const App = ({ Component, pageProps }) => {
         }
         a, a:visited {
           color: var(--black);
-          text-decoration: underline;
+          text-decoration: none;
           transition: all .2s ease-in-out; 
         }
-        a:hover {
-          color: var(--primary);
-          text-decoration: underline dotted;
-        }
+      
         svg {
           fill: var(--black);
         }
@@ -129,6 +126,7 @@ const App = ({ Component, pageProps }) => {
         }
         p, span {
           font-size: 1.6rem;
+          line-height: 2.2rem;
         }
 
         strong{
@@ -190,7 +188,7 @@ const App = ({ Component, pageProps }) => {
 
       `}</style>
 
-    </>
+    </Layout>
   )
 };
 

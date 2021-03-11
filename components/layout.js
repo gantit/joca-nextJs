@@ -31,6 +31,15 @@ const Layout = ({ children, meta }) => {
           max-width: 1200px;
           margin: 1em auto;
         }
+        @media (max-width: 810px) {
+          .post {
+            margin: 1rem;
+          }
+        }
+
+        h1 {
+          word-break: break-word;
+        }
         article {
           max-width: 800px;
           margin: 1em auto;
@@ -39,12 +48,6 @@ const Layout = ({ children, meta }) => {
         :global(.icon_back) {
           position:sticky;
           top: 80px;
-        }
-        @media (max-width: 1080px) {
-          :global(.icon_back) {
-            position:sticky;
-            top: 100%;
-          }
         }
       `}</style>
     </>

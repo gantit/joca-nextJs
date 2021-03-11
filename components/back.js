@@ -51,6 +51,7 @@ const Back = ({ url = '/' }) => (
           border: 1px solid var(--black);
           padding: 5px;
           transition: all .5s ease;
+          filter: opacity(0.9);
         }
         a.icon_back span{
           transform: translateX(0);

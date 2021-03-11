@@ -10,7 +10,7 @@ cover_image: https://me.joca.dev/code.jpeg
 
 Esto hace que a veces, llegar a detectar en qué carpeta esta ese componente, sea caótico. Pero, ¿se pueden importar de rutas absolutas? La respuesta es **SI** gracias a jsconfig.json en la raíz del proyecto.
 
-<div style="width:400px; margin:0 auto;">
+<div style="max-width:400px; margin:0 auto;">
   <img src="https://media.giphy.com/media/3016In3PO5FO8Uo7v7/giphy.gif" width="100%" height="100%" alt="esto es magia" >
 </div>
 

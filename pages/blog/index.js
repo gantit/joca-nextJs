@@ -25,7 +25,7 @@ const Doc = ({ slugs }) => {
           position: relative;
         }
         .posts-list {
-          width: 800px;
+          max-width: 800px;
           margin: 0 auto;
         }
       `}</style>

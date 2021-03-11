@@ -1,18 +1,17 @@
-import { useRef, useState, useLayoutEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const ListItem = ({ title, description }) => {
   const hover = useRef();
   const [wordWidth, setWordWidth] = useState(hover?.current?.offsetWidth || 0);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const { current } = hover;
-    console.log({ c: current.offsetWidth })
     setWordWidth(current.offsetWidth / 2)
   }, [])
 
   return (
     <>
-      <article onMouseEnter={() => console.log('width', hover.current ? hover.current.offsetWidth : 0)}>
+      <article>
         <div className="postsbg" ref={hover}><p>{title.split(" ")[0]}</p></div>
         <h1>
           {title}

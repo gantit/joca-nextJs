@@ -179,7 +179,7 @@ utils/
   ...
 ```
 
-<div style="width:400px; margin:0 auto;">
+<div style="max-width:400px; margin:0 auto;">
   <img src="https://media.giphy.com/media/2rqEdFfkMzXmo/giphy.gif" width="100%" height="100%" alt="abre tu mente"/>
 </div>
 

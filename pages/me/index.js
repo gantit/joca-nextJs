@@ -98,6 +98,15 @@ const Me = () => {
           background: var(--white);
         }
 
+        .chat .text a, 
+        .chat .text a:visited {
+          text-decoration: underline;
+        }
+        .chat .text a:hover {
+          color: var(--primary);
+          text-decoration: underline dotted;
+        }
+
         .chat .text h3 {
           margin-bottom: 2rem;
         }
