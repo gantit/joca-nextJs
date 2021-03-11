@@ -96,9 +96,9 @@ const App = ({ Component, pageProps }) => {
         }
         .icon:hover svg{
           fill: var(--primary);
-          animation: bounceY 0.2s;
+          animation: bounceY 0.3s;
           animation-direction: alternate;
-          animation-iteration-count: 5;
+          animation-iteration-count: 2;
         }
         .center {
           display: flex;
@@ -107,7 +107,12 @@ const App = ({ Component, pageProps }) => {
         }
         a, a:visited {
           color: var(--black);
-          text-decoration: none;
+          text-decoration: underline;
+          transition: all .2s ease-in-out; 
+        }
+        a:hover {
+          color: var(--primary);
+          text-decoration: underline dotted;
         }
         svg {
           fill: var(--black);
@@ -124,6 +129,10 @@ const App = ({ Component, pageProps }) => {
         }
         p, span {
           font-size: 1.6rem;
+        }
+
+        strong{
+          font-weight: 700;
         }
         @keyframes bounceX { 
           0% { transform: translateX(0); }

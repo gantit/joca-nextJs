@@ -51,9 +51,8 @@ class MyDocument extends Document {
           <link defer rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             defer
-            href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
-            rel="stylesheet"
-          />
+            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap"
+            rel="stylesheet" />
         </Head>
 
         <body>

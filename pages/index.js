@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import Head from 'components/head';;
+import { useEffect, useState } from 'react';
+import Head from 'components/head';
 
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <div>
-      <Head title="Frases" description={card && `${card.frase} --${card.autor}`} />
+      <Head title="Joca.dev" description={card && `${card.frase} --${card.autor}`} />
       <div className="hero">
         <h1 className="title">Cita del día</h1>
         <div className="row">
@@ -31,7 +31,9 @@ const Home = () => {
                 <img src={card.bg} id="scream" />
               </>
             ) : (
-              <span className="loading"></span>
+              <span className="loading">
+
+              </span>
             )}
           </div>
         </div>
