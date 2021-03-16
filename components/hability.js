@@ -3,7 +3,7 @@ const Hability = ({ title, habilities }) => (
     <h3 className="title">{title}</h3>
     <p className="list">
       {habilities.map((hability) => (
-        <span className="hability">{hability}</span>
+        <span key={hability} className="hability">{hability}</span>
       ))}
     </p>
     <style jsx>{`
@@ -24,6 +24,10 @@ const Hability = ({ title, habilities }) => (
           margin-bottom: 4px;
           white-space: nowrap;
           display: inline-block;
+        }
+
+        .hability:hover {
+          filter: drop-shadow(0 0 5px #666);
         }
     `}</style>
   </>

@@ -72,7 +72,9 @@ const App = ({ Component, pageProps }) => {
         }
         :root {
           --primary: #ff9800;
-          --secondary: #01a283;
+          --secondary: #bdb22e;
+          --secondaryGrad: #ffd001;
+          --secondaryGrad2: #f5b400;
           --black: #484848;
           --white: #ffffff;
         }
@@ -89,6 +91,12 @@ const App = ({ Component, pageProps }) => {
           margin: 10px 0;
         }
 
+        *::selection {
+          color: var(--white);
+          background-color: var(--primary);
+          text-shadow: 2px 2px var(--secondary);
+        }
+
         .icon svg{
           width: 30px;
           height: 30px;
@@ -96,9 +104,9 @@ const App = ({ Component, pageProps }) => {
         }
         .icon:hover svg{
           fill: var(--primary);
-          animation: bounceY 0.3s;
+          animation: anchor-bounce 0.5s;
           animation-direction: alternate;
-          animation-iteration-count: 2;
+          animation-iteration-count: 1;
         }
         .center {
           display: flex;
@@ -142,6 +150,16 @@ const App = ({ Component, pageProps }) => {
           0% { transform: translateY(0); }
           50% { transform: translateY(-2px); }
           100% { transform: translateY(0); }
+        }
+
+        @keyframes anchor-bounce { 
+          0% {transform: scale(1) translateY(0);}
+          10% {transform: scale(1.1,.9) translateY(2px);}
+          30% {transform: scale(.9,1.1) translateY(-4px);}
+          50% {transform: scale(1.05,.8) translateY(0);}
+          57% {transform: scale(1) translateY(0);}
+          64% {transform: scale(1) translateY(0);}
+          100% {transform: scale(1) translateY(0);}
         }
 
         :not(pre) > code[class*="language-"], pre[class*="language-"] {

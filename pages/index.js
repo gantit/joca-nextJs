@@ -31,9 +31,7 @@ const Home = () => {
                 <img src={card.bg} id="scream" />
               </>
             ) : (
-              <span className="loading">
-
-              </span>
+              <span className="loading" />
             )}
           </div>
         </div>
@@ -42,7 +40,7 @@ const Home = () => {
       <style jsx>{`
         .hero {
           width: 100%;
-          color: #333;
+          color: var(--balck);
         }
         .canvas{
           width: 400px;
