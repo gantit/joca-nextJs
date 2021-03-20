@@ -14,9 +14,6 @@ const Home = () => {
     getCard();
   }, []);
 
-
-
-
   return (
     <div>
       <Head title="Joca.dev" description={card && `${card.frase} --${card.autor}`} />

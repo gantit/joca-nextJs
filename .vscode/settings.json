@@ -1,0 +1,56 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#ff9800",
+    "badge.background": "#ff9800",
+    "statusBar.background": "#ff9800",
+    "activityBar.activeBackground": "#c77803",
+    "statusBarItem.hoverBackground": "#c77803",
+    "badge.foreground": "#3d3d3d",
+    "statusBar.foreground": "#3d3d3d",
+    "activityBar.inactiveForeground": "#3d3d3d",
+    "activityBarBadge.background": "#3d3d3d",
+    "activityBar.activeBorder": "#3d3d3d",
+    "statusBarItem.remoteBackground": "#3d3d3d",
+    "tab.activeBackground": "#333333",
+    "activityBar.foreground": "#000000",
+    "activityBar.border": "#ffffff",
+    "activityBarBadge.foreground": "#ffffff",
+    "tab.activeBorderTop": "#ffffff",
+    "tab.activeForeground": "#ffffff"
+  },
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/CVS": true,
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/.vscode": true,
+    "yarn.lock": true,
+    ".eslintcache": true
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[jsx-tags]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter",
+    "editor.formatOnSave": true
+  }
+}
