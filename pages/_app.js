@@ -157,6 +157,7 @@ const App = ({ Component, pageProps }) => {
           --secondaryGrad2: #f5b400;
           --black: #484848;
           --white: #ffffff;
+          --basicWhite: #fdfdfd;
         }
         html {
           font-size: 62.5%;
@@ -180,9 +181,8 @@ const App = ({ Component, pageProps }) => {
         }
 
         *::selection {
-          color: var(--white);
+          color: var(--basicWhite);
           background-color: var(--primary);
-          text-shadow: 2px 2px var(--secondary);
         }
 
         .icon svg {
