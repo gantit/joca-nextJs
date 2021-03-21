@@ -159,6 +159,7 @@ const App = ({ Component, pageProps }) => {
           --white: #ffffff;
           --basicWhite: #fdfdfd;
         }
+
         html {
           font-size: 62.5%;
           font-size-adjust: 100%;
@@ -297,6 +298,13 @@ const App = ({ Component, pageProps }) => {
           font-size: 1.6rem;
         }
 
+        .maybe-class-name,
+        .parameter,
+        .imports,
+        .property-access {
+          color: var(--basicWhite);
+        }
+
         [data-tooltip] {
           position: relative;
         }
@@ -323,6 +331,21 @@ const App = ({ Component, pageProps }) => {
           min-height: 4.2rem;
           bottom: -6rem;
           left: -0.5rem;
+        }
+        [data-tooltip]:hover:before {
+          opacity: 1;
+          min-width: 5rem;
+          min-height: 4.2rem;
+          bottom: -6rem;
+          left: -0.5rem;
+        }
+        @media (max-width: 500px) {
+          body {
+            padding-bottom: 50px;
+          }
+          [data-tooltip]:before {
+            display: none;
+          }
         }
       `}</style>
     </Layout>

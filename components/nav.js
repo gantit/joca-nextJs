@@ -8,19 +8,15 @@ import Twitter from 'assets/icons/twitter'
 import About from 'assets/icons/about'
 import Sun from 'assets/icons/sun'
 
+import useDarkMode from 'hooks/useDarkMode'
+
 const Nav = () => {
   const [isDarkMode, setIsDarkMode] = useState(true)
+  const [theme, toggleTheme] = useDarkMode()
 
   const setDarkMode = () => {
-    const primary = isDarkMode ? '#a24f50' : '#ff9800'
-    const black = isDarkMode ? '#fff' : '#484848'
-    const white = isDarkMode ? '#0d1117' : '#fff'
-
     setIsDarkMode(!isDarkMode)
-
-    document.documentElement.style.setProperty('--primary', primary)
-    document.documentElement.style.setProperty('--black', black)
-    document.documentElement.style.setProperty('--white', white)
+    toggleTheme()
   }
 
   return (
@@ -29,12 +25,12 @@ const Nav = () => {
         <li className="icon logo">
           <Link href="/">
             <a className="center">
-              <Logo atl="Logo joca.dev" /> Joca.dev
+              <Logo alt="Logo joca.dev" /> Joca.dev
             </a>
           </Link>
         </li>
         <li>
-          <ul>
+          <ul className="menuIcon">
             <li className="icon blog" data-tooltip="Sobre Mi">
               <Link href="/me">
                 <a>
@@ -50,23 +46,31 @@ const Nav = () => {
               </Link>
             </li>
             <li className="icon git" data-tooltip="Este es mi github">
-              <a href="https://github.com/gantit" atl="Logo github.com">
+              <a
+                href="https://github.com/gantit"
+                alt="Logo github.com"
+                target="_blank"
+              >
                 <Git />
               </a>
             </li>
             <li className="icon twitter" data-tooltip="Este es mi twitter">
-              <a href="https://twitter.com/Gantit" atl="Logo twitter.com">
+              <a
+                href="https://twitter.com/Gantit"
+                alt="Logo twitter.com"
+                target="_blank"
+              >
                 <Twitter />
               </a>
             </li>
-            <li
-              className="darkMode"
-              data-tooltip={isDarkMode ? 'In de Dark' : 'In the sun'}
-              onClick={setDarkMode}
-            >
-              <Sun className="darkMode" isDarkMode={isDarkMode} />
-            </li>
           </ul>
+        </li>
+        <li
+          className="darkMode"
+          data-tooltip={theme === 'light' ? 'In de Dark' : 'In the sun'}
+          onClick={setDarkMode}
+        >
+          <Sun className="darkMode" isDarkMode={theme === 'light'} />
         </li>
       </ul>
 
@@ -107,6 +111,22 @@ const Nav = () => {
         nav > ul {
           padding: 4px 0;
         }
+
+        @media (max-width: 500px) {
+          .menuIcon {
+            position: absolute;
+            right: 0;
+            background-color: white;
+            z-index: 1;
+            border: 1px solid black;
+            top: 94vh;
+            box-shadow: 0 1px 6px 0 rgb(0 0 0 / 12%);
+          }
+          .darkMode {
+            margin-left: 0;
+          }
+        }
+
         li {
           display: flex;
           padding: 6px 8px;
