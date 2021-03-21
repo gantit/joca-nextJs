@@ -116,11 +116,12 @@ const Nav = () => {
           .menuIcon {
             position: absolute;
             right: 0;
-            background-color: white;
+            background-color: var(--white);
             z-index: 1;
-            border: 1px solid black;
-            top: 94vh;
+            border: 1px solid var(--black);
+            top: 90vh;
             box-shadow: 0 1px 6px 0 rgb(0 0 0 / 12%);
+            border-radius: 4px;
           }
           .darkMode {
             margin-left: 0;
