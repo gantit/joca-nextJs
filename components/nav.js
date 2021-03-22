@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
+import MenuBtn from 'components/menuBtn'
+
 import Logo from 'assets/icons/logo'
 import Blog from 'assets/icons/blog'
 import Git from 'assets/icons/git'
@@ -11,12 +13,15 @@ import Sun from 'assets/icons/sun'
 import useDarkMode from 'hooks/useDarkMode'
 
 const Nav = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isOpenMenu, setOpenMenu] = useState(true)
   const [theme, toggleTheme] = useDarkMode()
 
   const setDarkMode = () => {
-    setIsDarkMode(!isDarkMode)
     toggleTheme()
+  }
+
+  const handleMenu = () => {
+    setOpenMenu(!isOpenMenu)
   }
 
   return (
@@ -30,6 +35,7 @@ const Nav = () => {
           </Link>
         </li>
         <li>
+          <MenuBtn isOpenMenu={isOpenMenu} setOpenMenu={handleMenu} />
           <ul className="menuIcon">
             <li className="icon blog" data-tooltip="Sobre Mi">
               <Link href="/me">
@@ -64,13 +70,13 @@ const Nav = () => {
               </a>
             </li>
           </ul>
-        </li>
-        <li
-          className="darkMode"
-          data-tooltip={theme === 'light' ? 'In de Dark' : 'In the sun'}
-          onClick={setDarkMode}
-        >
-          <Sun className="darkMode" isDarkMode={theme === 'light'} />
+          <div
+            className="darkMode"
+            data-tooltip={theme === 'light' ? 'In de Dark' : 'In the sun'}
+            onClick={setDarkMode}
+          >
+            <Sun className="darkMode" isDarkMode={theme === 'light'} />
+          </div>
         </li>
       </ul>
 
@@ -82,7 +88,7 @@ const Nav = () => {
           width: 30px;
           height: 30px;
           transition: all 0.2s ease-in-out;
-          transform: ${isDarkMode ? 'rotate(-180deg);' : 'rotate();'};
+          transform: ${theme === 'light' ? 'rotate(-180deg);' : 'rotate();'};
         }
         nav {
           background-color: var(--white);
@@ -114,17 +120,34 @@ const Nav = () => {
 
         @media (max-width: 500px) {
           .menuIcon {
+            background-color: var(--white);
+            border-radius: 4px;
+            border: 1px solid var(--black);
+            box-shadow: 0 1px 6px 0 rgb(0 0 0 / 12%);
+            ${!isOpenMenu
+              ? `
+              opacity: 0;
+              height: 0;
+              top: -100rem;
+            `
+              : `
+              height: 50px;
+              opacity: 1;
+              top: 8rem;
+            `}
+
+            transition: 1s all ease;
             position: absolute;
             right: 0;
-            background-color: var(--white);
             z-index: 1;
-            border: 1px solid var(--black);
-            top: 90vh;
-            box-shadow: 0 1px 6px 0 rgb(0 0 0 / 12%);
-            border-radius: 4px;
           }
           .darkMode {
-            margin-left: 0;
+            margin-left: 20px;
+            padding-top: 6px;
+          }
+          :global(svg.darkMode) {
+            width: 40px;
+            height: 40px;
           }
         }
 
