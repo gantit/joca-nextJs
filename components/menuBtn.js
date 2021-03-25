@@ -1,11 +1,7 @@
 const menuBtn = ({ isOpenMenu, setOpenMenu }) => (
   <>
     <div className="container">
-      <div
-        for="nav-toggle"
-        className="label"
-        onClick={() => setOpenMenu(!isOpenMenu)}
-      >
+      <div className="label" onClick={() => setOpenMenu(!isOpenMenu)}>
         <div className="line" />
       </div>
     </div>

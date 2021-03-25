@@ -1,22 +1,21 @@
-import { useEffect, useState } from 'react';
-import Head from 'components/head';
-
+import { useEffect, useState } from 'react'
+import Head from 'components/head'
 
 const Home = () => {
-  const [card, setCard] = useState(null);
+  const [card, setCard] = useState(null)
 
   const getCard = async () => {
-    const res = await fetch('/api/frases');
-    const newCard = await res.json();
-    setCard(newCard);
+    const res = await fetch('/api/frases')
+    const newCard = await res.json()
+    setCard(newCard)
   }
   useEffect(() => {
-    getCard();
-  }, []);
+    getCard()
+  }, [])
 
   return (
     <div>
-      <Head title="Joca.dev" description={card && `${card.frase} --${card.autor}`} />
+      <Head />
       <div className="hero">
         <h1 className="title">Cita del día</h1>
         <div className="row">
@@ -39,7 +38,7 @@ const Home = () => {
           width: 100%;
           color: var(--balck);
         }
-        .canvas{
+        .canvas {
           width: 400px;
           height: 400px;
         }
@@ -50,7 +49,7 @@ const Home = () => {
           line-height: 1.15;
           font-size: 48px;
         }
-        .title, {
+        .title {
           text-align: center;
         }
         .row {
@@ -61,16 +60,22 @@ const Home = () => {
           justify-content: space-around;
         }
         @keyframes Loading {
-          0%{background-position:0% 50%}
-          50%{background-position:100% 50%}
-          100%{background-position:0% 50%}
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
         }
         .card .loading {
           max-width: 100%;
           height: 24px;
           border-radius: 4px;
           display: inline-block;
-          background: linear-gradient(270deg, #D1D1D1, #EAEAEA);
+          background: linear-gradient(270deg, #d1d1d1, #eaeaea);
           background-size: 200% 200%;
           animation: Loading 2s ease infinite;
         }
@@ -83,7 +88,7 @@ const Home = () => {
           border: 1px solid #9b9b9b;
           position: relative;
           height: 400px;
-          width:400px;
+          width: 400px;
         }
         .card:hover {
           border-color: #777777;
@@ -105,7 +110,8 @@ const Home = () => {
           margin: 0;
           padding: 10px;
           position: absolute;
-          text-shadow: 0px 0px 3px black, 0px 0px 3px black,0px 0px 3px black,0px 0px 3px black;
+          text-shadow: 0px 0px 3px black, 0px 0px 3px black, 0px 0px 3px black,
+            0px 0px 3px black;
           top: 0;
           top: 10px;
           z-index: 3;
@@ -119,7 +125,8 @@ const Home = () => {
           position: absolute;
           right: 10px;
           z-index: 3;
-          text-shadow: 0px 0px 3px black, 0px 0px 3px black,0px 0px 3px black,0px 0px 3px black;
+          text-shadow: 0px 0px 3px black, 0px 0px 3px black, 0px 0px 3px black,
+            0px 0px 3px black;
         }
         .card img {
           height: 100%;
@@ -131,7 +138,7 @@ const Home = () => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

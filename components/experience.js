@@ -1,23 +1,25 @@
-import { useRef, useLayoutEffect, useState } from "react";
+import { useRef, useEffect, useState } from 'react'
 
 const Experience = ({ title, company, date, children }) => {
   const item = useRef()
-  const [itemHeight, setItemHeight] = useState(item?.current?.offsetWidth || 0);
+  const [itemHeight, setItemHeight] = useState(item?.current?.offsetWidth || 0)
 
-  useLayoutEffect(() => {
-    const { current } = item;
+  useEffect(() => {
+    const { current } = item
     setItemHeight(current.offsetHeight)
-  }, [])
+  }, [item?.current?.offsetHeight])
 
   return (
     <>
       <div className="experience" ref={item}>
-        <h3>{title} <span className="company">{company}</span></h3>
+        <h3>
+          {title} <span className="company">{company}</span>
+        </h3>
         <p className="date">{date}</p>
         <p>{children}</p>
       </div>
       <style jsx>{`
-        h3 { 
+        h3 {
           margin-bottom: 0;
         }
         .company {
@@ -44,7 +46,7 @@ const Experience = ({ title, company, date, children }) => {
           background-color: var(--white);
           border-radius: 50%;
           border: 2px solid var(--primary);
-          content: "";
+          content: '';
           height: 10px;
           left: 0px;
           position: absolute;
@@ -54,7 +56,7 @@ const Experience = ({ title, company, date, children }) => {
         }
         .experience:after {
           border-left: 2px solid var(--primary);
-          content: "";
+          content: '';
           height: ${itemHeight + 15}px;
           left: 6px;
           position: absolute;
@@ -64,11 +66,16 @@ const Experience = ({ title, company, date, children }) => {
 
         .experience:last-child:after {
           border-bottom: 0;
-          border-image:linear-gradient( to bottom, var(--primary), rgba(0, 0, 0, 0) ) 1 100%;
+          border-image: linear-gradient(
+              to bottom,
+              var(--primary),
+              rgba(0, 0, 0, 0)
+            )
+            1 100%;
         }
       `}</style>
     </>
-  );
+  )
 }
 
-export default Experience;
+export default Experience

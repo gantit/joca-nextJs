@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://joca.dev</loc>
+    <loc>https://me.joca.dev</loc>
   </url>
 
   <url>
-    <loc>https://joca.dev/blog</loc>
+    <loc>https://me.joca.dev/blog</loc>
   </url>
 
   <url>
-    <loc>https://joca.dev/blog/carpetas</loc>
+    <loc>https://me.joca.dev/blog/carpetas</loc>
   </url>
 
   <url>
-    <loc>https://joca.dev/blog/rutas_absolutas</loc>
+    <loc>https://me.joca.dev/blog/rutas_absolutas</loc>
+  </url>
+
+  <url>
+    <loc>https://me.joca.dev/me/index</loc>
   </url>
 </urlset>

@@ -1,21 +1,15 @@
 <h1 align="center">Hi 👋, I'm Johnny C</h1>
 <h3 align="center">Frontend developer from spain</h3>
-<p align="left"> <img src="https://img.shields.io/badge/Joca.dev-v1.0.1-ffffff.svg" /> 
+<p align="left"> <img src="https://img.shields.io/badge/Joca.dev-v1.0.5-ffffff.svg" /> 
 <img src="https://komarev.com/ghpvc/?username=gantit" alt="https://github.com/gantit" />
 </p>
 
 - 🔭 Actualmente trabajo para [Vicens Vives](https://www.vicensvives.com/)
-
 - 👯 Puedo colaborar en **cualquier proyecto** y más si mejoran la vida de las personas
-
 - 👨‍💻 Todos mis proyectos públicos los puedes ver en [https://github.com/gantit](https://github.com/gantit)
-
-- 📝 Intiento escribir articulos en [http://joca.dev/blog](http://joca.dev/blog)
-
+- 📝 Intiento escribir articulos en [Blog](http://me.joca.dev/blog)
 - 💬 Hablemos de **React, Node, JavaScript, NextJs**
-
 - 📫 Puedes contactar conmigo **me@joca.dev**
-
 - ⚡ Me gusta el **café** y la **Cerveza**
 
 ![HTML5](https://img.shields.io/badge/-HTML5-%23E44D27?style=flat-square&logo=html5&logoColor=ffffff)
