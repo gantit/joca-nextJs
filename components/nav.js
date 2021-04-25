@@ -9,6 +9,7 @@ import Git from 'assets/icons/git'
 import Twitter from 'assets/icons/twitter'
 import About from 'assets/icons/about'
 import Sun from 'assets/icons/sun'
+import Portfolio from 'assets/icons/portfolio'
 
 import useDarkMode from 'hooks/useDarkMode'
 
@@ -35,7 +36,7 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <MenuBtn isOpenMenu={isOpenMenu} setOpenMenu={handleMenu} />
+          <MenuBtn isOpenMenu={!isOpenMenu} setOpenMenu={handleMenu} />
           <ul className="menuIcon">
             <li className="icon blog" data-tooltip="Sobre Mi">
               <Link href="/me">
@@ -48,6 +49,13 @@ const Nav = () => {
               <Link href="/blog">
                 <a>
                   <Blog />
+                </a>
+              </Link>
+            </li>
+            <li className="icon blog" data-tooltip="Porfolio">
+              <Link href="/portfolio">
+                <a>
+                  <Portfolio />
                 </a>
               </Link>
             </li>
@@ -124,7 +132,7 @@ const Nav = () => {
             border-radius: 4px;
             border: 1px solid var(--black);
             box-shadow: 0 1px 6px 0 rgb(0 0 0 / 12%);
-            ${!isOpenMenu
+            ${isOpenMenu
               ? `
               opacity: 0;
               height: 0;

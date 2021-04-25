@@ -17,6 +17,14 @@
   </url>
 
   <url>
-    <loc>https://me.joca.dev/me/index</loc>
+    <loc>https://me.joca.dev/me</loc>
+  </url>
+
+  <url>
+    <loc>https://me.joca.dev/portfolio</loc>
+  </url>
+
+  <url>
+    <loc>https://me.joca.dev/portfolio/restrictions</loc>
   </url>
 </urlset>

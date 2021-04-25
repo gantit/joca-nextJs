@@ -8,7 +8,10 @@ import Chating from 'assets/img/chating'
 
 const Me = () => (
   <>
-    <Head />
+    <Head
+      title="Johnny C. desarrollador web"
+      description="Información personal sobre mi trayectoria como desarrollador web"
+    />
     <div className="me">
       <section className="header">
         <div className="me">

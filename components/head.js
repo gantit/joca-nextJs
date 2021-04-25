@@ -21,7 +21,7 @@ const Header = ({ title, description, url, ogImage, children }) => (
     <meta property="og:url" content={url || defaultOGURL} />
     <meta
       property="og:title"
-      content={`Web personal - ${title || defaultTitle}`}
+      content={title || `Web personal - ${defaultTitle}`}
     />
     <meta
       property="og:description"
