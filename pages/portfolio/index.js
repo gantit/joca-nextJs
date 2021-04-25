@@ -26,20 +26,20 @@ const Doc = ({ slugs }) => {
         >
           <ListItem
             title="Academia"
-            description="Realiza activiades educatiavas relacionadas con los libros de vicens vives, de una manera mas libre a tú medidaa"
+            description="Realiza actividades educativas relacionadas con los libros de vicens vives, de una manera mas libre a tú medida"
           />
         </a>
         <a href="http://sitfoods.com/" className="option" target="_blank">
           <ListItem
             title="SitFoods"
-            description="App para crear la carta de tu restarante o local de comida. Que te permite modificarla en cualquier momento"
+            description="App para crear la carta de tu restaurante o local de comida. Que te permite modificarla en cualquier momento"
           />
         </a>
         <Link href={`/portfolio/restrictions`} className="option">
           <a>
             <ListItem
               title="Restricciones en la comunidades"
-              description="Una pequeña app que te muestra las restricciones en tu comunidad"
+              description="App que te muestra las restricciones en tu comunidad"
             />
           </a>
         </Link>
