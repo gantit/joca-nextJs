@@ -50,7 +50,7 @@ const getData = async () => {
 export default async (req, res) => {
   try {
     const file = await fs.promises.readFile(jsonFilePath, { encoding: 'utf8' })
-    res.json({ existe: JSON.parse(file) })
+    res.json(JSON.parse(file))
   } catch (error) {
     const data = await getData()
     res.json(data)

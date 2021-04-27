@@ -9,19 +9,19 @@
   </url>
 
   <url>
-    <loc>https://me.joca.dev/me</loc>
-  </url>
-
-  <url>
-    <loc>https://me.joca.dev/portfolio</loc>
-  </url>
-
-  <url>
     <loc>https://me.joca.dev/blog/carpetas</loc>
   </url>
 
   <url>
     <loc>https://me.joca.dev/blog/rutas_absolutas</loc>
+  </url>
+
+  <url>
+    <loc>https://me.joca.dev/me</loc>
+  </url>
+
+  <url>
+    <loc>https://me.joca.dev/portfolio</loc>
   </url>
 
   <url>

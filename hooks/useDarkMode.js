@@ -6,7 +6,7 @@ const useDarkMode = () => {
   const setMode = (mode) => {
     window.localStorage.setItem('theme', mode)
 
-    const primary = mode === 'dark' ? '#a24f50' : '#ff9800'
+    const primary = mode === 'dark' ? '#747474' : '#ff9800'
     const black = mode === 'dark' ? '#fff' : '#484848'
     const white = mode === 'dark' ? '#0d1117' : '#fff'
     document.documentElement.style.setProperty('--primary', primary)

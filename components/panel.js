@@ -1,12 +1,10 @@
-import { memo } from 'react'
-
 import Cross from 'assets/icons/cross'
 // svg comunidades https://es.wikipedia.org/wiki/Comunidad_aut%C3%B3noma
 const ControlPanel = ({ data, setData }) => (
   <>
     <div className="controlPanel">
       <Cross onClick={() => setData(null)} />
-      <h3>{data.countyName}</h3>
+      <h3>{data.comunityName}</h3>
       <p>
         <strong>Cierre perimetral de la Comunidad</strong>:{' '}
         {data.perimetralComunity}
@@ -33,12 +31,14 @@ const ControlPanel = ({ data, setData }) => (
     </div>
     <style jsx>{`
       .controlPanel {
+        background-color: var(--white);
+        border: 1px solid var(--black);
+        color: var(--black);
+        margin-bottom: 5px;
+        margin: 0 auto;
         max-width: 800px;
         padding: 30px;
-        border: 1px solid var(--black);
-        margin: 0 auto;
-        margin-bottom: 5px;
-        position: relative;
+        position: absolute;
       }
       .controlPanel :global(svg) {
         width: 20px;
@@ -61,4 +61,4 @@ const ControlPanel = ({ data, setData }) => (
   </>
 )
 
-export default memo(ControlPanel)
+export default ControlPanel
