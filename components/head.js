@@ -5,7 +5,15 @@ const defaultOGURL = 'https://me.joca.dev'
 const defaultOGImage = 'https://me.joca.dev/img/avatar.png'
 const defaultTitle = 'Johnny C. - Web developer'
 
-const Header = ({ title, description, url, image, children }) => (
+const Header = ({
+  title,
+  description,
+  url,
+  image,
+  children,
+  width,
+  height
+}) => (
   <Head>
     <meta charSet="UTF-8" />
     <title>{title || defaultTitle}</title>
@@ -17,6 +25,7 @@ const Header = ({ title, description, url, image, children }) => (
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={image || defaultOGImage} />
     <meta name="twitter:domain" content="joca.dev" />
+
     <meta property="og:locale" content="es-ES" />
     <meta property="og:url" content={url || defaultOGURL} />
     <meta
@@ -28,8 +37,8 @@ const Header = ({ title, description, url, image, children }) => (
       content={description || defaultDescription}
     />
     <meta property="og:image" content={image || defaultOGImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content={width || '1200'} />
+    <meta property="og:image:height" content={height || '630'} />
     {children}
   </Head>
 )
