@@ -19,6 +19,7 @@ const Home = ({ data }) => {
       <Head
         title="Restricciones covid en españa por comunidad"
         description="Debido al covid actualmente existen restricciones en españa, aquí las tienes por comunidad"
+        image="https://me.joca.dev/img/restrictions.webp"
       />
       <div className="hero">
         <div className="row">
