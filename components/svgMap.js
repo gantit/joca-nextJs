@@ -49,8 +49,7 @@ const Icon = ({ onClick, ...props }) => (
         <rect
           x="389"
           y="398"
-          fill="transparent"
-          stroke="#fff"
+          className="rectComunity"
           strokeWidth="0.5"
           width="10"
           height="10"
@@ -65,8 +64,7 @@ const Icon = ({ onClick, ...props }) => (
         <rect
           x="342.5"
           y="394.5"
-          fill="transparent"
-          stroke="#fff"
+          className="rectComunity"
           strokeWidth="0.5"
           width="15"
           height="15"
@@ -143,8 +141,7 @@ const Icon = ({ onClick, ...props }) => (
         <rect
           x="15.4"
           y="327.4"
-          fill="transparent"
-          stroke="#fff"
+          className="rectComunity"
           strokeWidth="0.5"
           width="268.7"
           height="116.2"
@@ -155,12 +152,16 @@ const Icon = ({ onClick, ...props }) => (
     <style jsx>{`
       .pathComunity {
         fill: var(--black);
-        stroke: var(--white);
+        stroke: var(--primary);
+      }
+      .rectComunity {
+        fill: transparent;
+        stroke: var(--primary);
       }
       .pathComunity:hover {
         cursor: pointer;
         fill: var(--primary);
-        stroke: var(--white);
+        stroke: var(--primary);
       }
     `}</style>
   </>

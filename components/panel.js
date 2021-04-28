@@ -57,6 +57,18 @@ const ControlPanel = ({ data, setData }) => (
       p {
         margin-left: 20px;
       }
+
+      @media (max-width: 420px) {
+        .controlPanel {
+          padding: 10px;
+        }
+        .controlPanel :global(svg) {
+          top: 20px;
+        }
+        p {
+          margin-left: 0;
+        }
+      }
     `}</style>
   </>
 )

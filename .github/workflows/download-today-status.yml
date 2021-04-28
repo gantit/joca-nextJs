@@ -1,0 +1,25 @@
+name: Download latest Restriccions Status on spain
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 12 * * *
+
+jobs:
+  downloadStatus:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js version 14.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - run: npm install
+    - run: npm run download-today-status
+    - run: |
+        git config user.name Joca
+        git config user.email me@joca.dev
+        git add .
+        git commit -m "Add report for today"
+        git push

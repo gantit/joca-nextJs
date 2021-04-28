@@ -1,20 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Head from 'components/head'
 import ControlPanel from 'components/panel'
 import Mapa from 'components/svgMap'
 
-const Home = () => {
-  const [data, setData] = useState(null)
+const Home = ({ data }) => {
   const [details, setDetails] = useState(null)
-
-  const getRestritions = async () => {
-    const res = await fetch('/api/comunity')
-    const data = await res.json()
-    setData(data)
-  }
-  useEffect(() => {
-    getRestritions()
-  }, [])
 
   const onClick = (comunityName) => {
     const contryInfo = data[comunityName]
@@ -89,11 +79,26 @@ const Home = () => {
         @media (max-width: 420px) {
           .title {
             font-size: 34px;
+            padding-top: 0;
+          }
+
+          .row {
+            margin: 0 auto 40px;
           }
         }
       `}</style>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const data = require('../../../public/data/latest.json')
+
+  return {
+    props: {
+      data
+    }
+  }
 }
 
 export default Home
