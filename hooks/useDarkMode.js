@@ -13,8 +13,6 @@ const useDarkMode = () => {
     document.documentElement.style.setProperty('--black', black)
     document.documentElement.style.setProperty('--white', white)
 
-    console.log('setMode', mode)
-
     setTheme(mode)
   }
 

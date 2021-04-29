@@ -16,7 +16,7 @@ const Experience = ({ title, company, date, children }) => {
           {title} <span className="company">{company}</span>
         </h3>
         <p className="date">{date}</p>
-        <p>{children}</p>
+        {children}
       </div>
       <style jsx>{`
         h3 {

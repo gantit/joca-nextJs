@@ -197,6 +197,10 @@ const App = ({ Component, pageProps }) => {
           animation-direction: alternate;
           animation-iteration-count: 1;
         }
+
+        .icon.active svg {
+          fill: var(--primary);
+        }
         .center {
           display: flex;
           margin: 0;

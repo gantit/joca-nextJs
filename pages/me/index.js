@@ -38,7 +38,7 @@ const Me = () => (
         <div className="text">
           <h3>Un poco sobre mí</h3>
           <p>
-            🔭 Actualmente trabajo para{' '}
+            🔭 Actualmente trabajo para
             <a target="_blank" href="https://www.vicensvives.com/">
               Vicens Vives
             </a>
@@ -48,7 +48,7 @@ const Me = () => (
             mejoran la vida de las personas
           </p>
           <p>
-            👨‍💻 Todos mis proyectos públicos los puedes ver en{' '}
+            👨‍💻 Todos mis proyectos públicos los puedes ver en
             <a target="_blank" href="https://github.com/gantit">
               @gantit
             </a>
@@ -60,7 +60,7 @@ const Me = () => (
             💬 Hablemos de <strong>React, Node, JavaScript, NextJs</strong>
           </p>
           <p>
-            📫 Puedes contactar conmigo en{' '}
+            📫 Puedes contactar conmigo en
             <a href="mailto:me@joca.dev">
               <strong>me@joca.dev</strong>
             </a>
@@ -83,20 +83,19 @@ const Me = () => (
                 seguimiento de los alumnos con el profesorado, todo la
                 aplicación está basada en las actividades que tienen los libros
                 de la casa. Permitiendo al profesor tener un mejor y mayor
-                seguimiento del avance de su alumno{' '}
+                seguimiento del avance de su alumno
                 <a href="https://edubook.vicensvives.com/">
                   edubook.vicensvives.com/
                 </a>
-                .{' '}
+                .
               </p>
               <p>
-                {' '}
                 Creación y puesta en marcha de una plataforma de actividades
                 sueltas para que los alumnos puedan hacer las actividades a su
-                manera{' '}
+                manera
                 <a href="https://academia.vicensvives.com">
-                  https://academia.vicensvives.com{' '}
-                </a>{' '}
+                  https://academia.vicensvives.com
+                </a>
               </p>
             </Expreience>
             <Expreience
@@ -106,9 +105,9 @@ const Me = () => (
             >
               <p>
                 Contribuir con el desarrollo de dos aplicaciones, una plataforma
-                de fidelización para{' '}
+                de fidelización para
                 <a href="https://danone.es/">danone.es/ </a> y el desarrollo y
-                estructura de una aplicación híbrida para a riyad bank{' '}
+                estructura de una aplicación híbrida para a riyad bank
               </p>
             </Expreience>
           </div>

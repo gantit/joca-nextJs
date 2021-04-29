@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import MenuBtn from 'components/menuBtn'
 
@@ -14,6 +15,7 @@ import Portfolio from 'assets/icons/portfolio'
 import useDarkMode from 'hooks/useDarkMode'
 
 const Nav = () => {
+  const { pathname } = useRouter()
   const [isOpenMenu, setOpenMenu] = useState(true)
   const [theme, toggleTheme] = useDarkMode()
 
@@ -37,22 +39,33 @@ const Nav = () => {
         </li>
         <li>
           <MenuBtn isOpenMenu={!isOpenMenu} setOpenMenu={handleMenu} />
-          <ul className="menuIcon">
-            <li className="icon blog" data-tooltip="Sobre Mi">
+          <ul className="menuIcon" onClick={handleMenu}>
+            <li
+              className={`icon blog ${pathname.includes('/me') && 'active'}`}
+              data-tooltip="Sobre Mi"
+            >
               <Link href="/me">
                 <a>
                   <About />
                 </a>
               </Link>
             </li>
-            <li className="icon blog" data-tooltip="Ir a mi blog">
+            <li
+              className={`icon blog ${pathname.includes('/blog') && 'active'}`}
+              data-tooltip="Ir a mi blog"
+            >
               <Link href="/blog">
                 <a>
                   <Blog />
                 </a>
               </Link>
             </li>
-            <li className="icon blog" data-tooltip="Porfolio">
+            <li
+              className={`icon blog ${
+                pathname.includes('/portfolio') && 'active'
+              }`}
+              data-tooltip="Porfolio"
+            >
               <Link href="/portfolio">
                 <a>
                   <Portfolio />
@@ -144,7 +157,7 @@ const Nav = () => {
               top: 8rem;
             `}
 
-            transition: 1s all ease;
+            transition: 0.4s all ease;
             position: absolute;
             right: 0;
             z-index: 1;
@@ -170,7 +183,6 @@ const Nav = () => {
           height: 40px;
           width: 40px;
         }
-
         .logo:hover :global(svg) {
           animation: none;
           border-radius: 20px;

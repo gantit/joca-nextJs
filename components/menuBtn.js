@@ -47,9 +47,12 @@ const menuBtn = ({ isOpenMenu, setOpenMenu }) => (
       .line::before,
       .line::after {
         content: '';
-        transition: bottom 0.4s cubic-bezier(0.77, 0, 0.175, 1),
-          top 0.4s cubic-bezier(0.77, 0, 0.175, 1),
-          transform 0.4s 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        transition: bottom ${!isOpenMenu ? '0.3s' : ''} 0.3s
+            cubic-bezier(0.77, 0, 0.175, 1),
+          top ${!isOpenMenu ? '0.3s' : ''} 0.3s cubic-bezier(0.77, 0, 0.175, 1),
+          transform ${!isOpenMenu ? '' : '0.3s'} 0.3s
+            cubic-bezier(0.77, 0, 0.175, 1);
+
         position: absolute;
         left: 0;
       }
