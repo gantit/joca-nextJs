@@ -15,7 +15,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "download-today-status": "node scripts/get-today-status.js"
+    "download-today-status": "node scripts/get-today-status.js",
+    "cvs": "node scripts/cvs-to-json.js"
   },
   "dependencies": {
     "chrome-aws-lambda": "^8.0.2",
