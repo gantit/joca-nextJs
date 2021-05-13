@@ -1,3 +1,4 @@
+const CSVToJSON = require('csvtojson')
 const chromium = require('chrome-aws-lambda')
 const fs = require('fs')
 
@@ -8,6 +9,16 @@ const month = `${date.getMonth() + 1}`.padStart(2, '0')
 const jsonFileName = `${year}${month}${day}.json`
 const jsonFilePath = `./public/data/${jsonFileName}`
 
+const stripHtml = (str) =>  {
+  if ((str===null) || (str==='')) {
+    return false;
+  } else {
+    str = str.toString();
+  }
+  return str.replace( /(<([^>]+)>)/ig, '');
+}
+
+
 const getData = async () => {
   const browser = await chromium.puppeteer.launch({
     args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
@@ -17,34 +28,44 @@ const getData = async () => {
     ignoreHTTPSErrors: true
   })
   const page = await browser.newPage()
-  await page.goto('https://flo.uri.sh/visualisation/5087020/embed', {
-    waitUntil: 'networkidle0'
-  })
-  var { data } = await page.evaluate(() => window.template)
-
+  await page.goto('https://datawrapper.dwcdn.net/qegM7/', { waitUntil: 'networkidle0' })
+  const {chartData}  = await page.evaluate(() => window.__DW_SVELTE_PROPS__.data)
+  
+  await page.reload({ waitUntil: ['networkidle0', 'domcontentloaded'] })
   await browser.close()
-  const comunities = {}
+  const source = await CSVToJSON().fromString(stripHtml(chartData))
+  const comunities =  source.filter(({Comunidad})=> !!Comunidad)
+  const data = {}
+  
+  comunities.forEach((comunity)=>{
+    if (comunity.Comunidad === "Comunidad Foral de Navarra") {
+      comunity.Comunidad = "Navarra"
+    }
+    
+    if (comunity.Comunidad === "Principado de Asturias"){
+      comunity.Comunidad = "Asturias"
+    }
 
-  data.rows.forEach(
-    ({ columns }) =>
-      (comunities[columns[0]] = {
-        comunity: comunities[columns[0]],
-        perimetralComunity: columns[1],
-        perimetralMunicipal: columns[2],
-        curfew: columns[3],
-        socialMeetings: columns[4],
-        catering: columns[5],
-        shops: columns[6],
-        lastUpdate: columns[7]
-      })
-  )
+    if (comunity.Comunidad === "Islas Baleares") {
+      comunity.Comunidad = "Baleares"
+    }
 
-  await fs.promises.writeFile(jsonFilePath, JSON.stringify(comunities))
+    data[comunity.Comunidad] = {
+      comunityName: comunity.Comunidad,
+      movility: comunity.Movilidad,
+      maxGroups: comunity['Reunión'],
+      catering: comunity['Comercio y restauración'],
+      curfew: comunity['Toque de queda'],
+      incidence: comunity.Incidencia
+    }
+  })
+
+  await fs.promises.writeFile(jsonFilePath, JSON.stringify(data))
   await fs.promises.copyFile(
     `./public/data/${jsonFileName}`,
     './public/data/latest.json'
   )
-  return comunities
+  return data
 }
 
 getData()
