@@ -6,27 +6,16 @@ const ControlPanel = ({ data, setData }) => (
       <Cross onClick={() => setData(null)} />
       <h3>{data.comunityName}</h3>
       <p>
-        <strong>Cierre perimetral de la Comunidad</strong>:{' '}
-        {data.perimetralComunity}
+        <strong>Toque de queda</strong>: {data.curfew}
       </p>
       <p>
-        <strong>Cierre perimetral de municipios</strong>:{' '}
-        {data.perimetralMunicipal}
+        <strong>Reuniones sociales</strong>: {data.maxGroups}
       </p>
       <p>
-        <strong>Horario toque de queda</strong>: {data.curfew}
+        <strong>Hostelería y Comercios</strong>: {data.catering}
       </p>
       <p>
-        <strong>Reuniones sociales</strong>: {data.socialMeetings}
-      </p>
-      <p>
-        <strong>Hostelería</strong>: {data.catering}
-      </p>
-      <p>
-        <strong>Comercios</strong>: {data.shops}
-      </p>
-      <p>
-        <strong>Ultima actualización</strong>: {data.lastUpdate}
+        <strong>Incidencia del Covid en la comunidad</strong>: {data.incidence}
       </p>
     </div>
     <style jsx>{`

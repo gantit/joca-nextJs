@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "chrome-aws-lambda": "^8.0.2",
+    "csvtojson": "^2.0.10",
     "globby": "^11.0.2",
     "gray-matter": "^4.0.2",
     "mapbox-gl": "^2.2.0",

@@ -34,7 +34,7 @@ const Home = ({ data }) => {
           </p>
         </div>
         <div className="row">
-          {details?.perimetralComunity && (
+          {details?.comunityName && (
             <ControlPanel data={details} setData={setDetails} />
           )}
           <Mapa onClick={onClick} />
