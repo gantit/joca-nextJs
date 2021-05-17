@@ -163,22 +163,24 @@ const Me = () => (
       </section>
       <style jsx>{`
         .header {
-          border-radius: 10px;
-          border: 3px solid;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 30px;
+          margin: 0 auto;
+          max-width: 1200px;
+          position: relative;
+          text-align: center;
+        }
+
+        .header .me > :global(div):nth-child(1) {
           margin: 50px auto 20px;
+          border: 3px solid;
+          border-radius: 10px;
           transition: all 0.3 ease;
         }
-
         .header > h2 {
           text-shadow: 1px 1px var(--white);
-        }
-
-        .me {
-          display: grid;
-          position: relative;
-        }
-        .me > * {
-          grid-area: 1/1;
         }
 
         .chat {
