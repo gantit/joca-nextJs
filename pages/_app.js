@@ -5,6 +5,9 @@ import Layout from 'components/layoutApp'
 
 import { pageview } from 'lib/gtag'
 
+import LogRocket from 'logrocket'
+LogRocket.init('jsaom2/my-site')
+
 const App = ({ Component, pageProps }) => {
   const router = useRouter()
   const handleRouteChange = (url) => {
