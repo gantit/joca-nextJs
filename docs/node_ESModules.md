@@ -10,7 +10,7 @@ order: 3
 
 # Soporte para ECMAScript modules en Node
  
-Dejaremos de ver el molesto error de `SyntaxError: Cannot use import statement outside a module` gracias a que, desde ahora podremos usar ESMolules en nuestros ficheros de NODE,  solo tenemos que añadir `"type": "module"` a nuestro package.json y ya tendremos el soporte.
+Dejaremos de ver el molesto error de `SyntaxError: Cannot use import statement outside a module` gracias a que, desde ahora podremos usar ESModules en nuestros ficheros de NODE,  solo tenemos que añadir `"type": "module"` a nuestro package.json y ya tendremos el soporte.
 
 En caso de no quererlo en todo el proyecto, pero si para determinado script que ejecutas en node, como es mi caso. Debes añadirle un flag al script que ejecutas `node script.js —-input-type=module` 
 
