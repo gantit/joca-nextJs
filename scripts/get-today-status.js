@@ -9,15 +9,14 @@ const month = `${date.getMonth() + 1}`.padStart(2, '0')
 const jsonFileName = `${year}${month}${day}.json`
 const jsonFilePath = `./public/data/${jsonFileName}`
 
-const stripHtml = (str) =>  {
-  if ((str===null) || (str==='')) {
-    return false;
+const stripHtml = (str) => {
+  if (str === null || str === '') {
+    return false
   } else {
-    str = str.toString();
+    str = str.toString()
   }
-  return str.replace( /(<([^>]+)>)/ig, '');
+  return str.replace(/(<([^>]+)>)/gi, '')
 }
-
 
 const getData = async () => {
   const browser = await chromium.puppeteer.launch({
@@ -28,26 +27,30 @@ const getData = async () => {
     ignoreHTTPSErrors: true
   })
   const page = await browser.newPage()
-  await page.goto('https://datawrapper.dwcdn.net/qegM7/', { waitUntil: 'networkidle0' })
-  const {chartData}  = await page.evaluate(() => window.__DW_SVELTE_PROPS__.data)
-  
+  await page.goto('https://datawrapper.dwcdn.net/qegM7/', {
+    waitUntil: 'networkidle0'
+  })
+  const { chartData } = await page.evaluate(
+    () => window.__DW_SVELTE_PROPS__.data
+  )
+
   await page.reload({ waitUntil: ['networkidle0', 'domcontentloaded'] })
   await browser.close()
   const source = await CSVToJSON().fromString(stripHtml(chartData))
-  const comunities =  source.filter(({Comunidad})=> !!Comunidad)
+  const comunities = source.filter(({ Comunidad }) => !!Comunidad)
   const data = {}
-  
-  comunities.forEach((comunity)=>{
-    if (comunity.Comunidad === "Comunidad Foral de Navarra") {
-      comunity.Comunidad = "Navarra"
-    }
-    
-    if (comunity.Comunidad === "Principado de Asturias"){
-      comunity.Comunidad = "Asturias"
+
+  comunities.forEach((comunity) => {
+    if (comunity.Comunidad === 'Comunidad Foral de Navarra') {
+      comunity.Comunidad = 'Navarra'
     }
 
-    if (comunity.Comunidad === "Islas Baleares") {
-      comunity.Comunidad = "Baleares"
+    if (comunity.Comunidad === 'Principado de Asturias') {
+      comunity.Comunidad = 'Asturias'
+    }
+
+    if (comunity.Comunidad === 'Islas Baleares') {
+      comunity.Comunidad = 'Baleares'
     }
 
     data[comunity.Comunidad] = {

@@ -4,6 +4,8 @@ published: true
 description: Las rutas de los ficheros y al importarlos.
 tags: javascript, modules, imports
 cover_image: https://me.joca.dev/code.jpeg
+date: '22/05/2021'
+order: 2
 ---
 
 # Rutas relativas + nombresDeComponentesLargos

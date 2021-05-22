@@ -4,6 +4,8 @@ published: true
 description: A medida que nuestro proyecto crece, el mantener un orden se hace difícil.
 tags: javascript, reactJs, redux, testing
 cover_image: https://me.joca.dev/code.jpeg
+date: '10/02/2021'
+order: 1
 ---
 
 # Orden de las carpetas en React

@@ -1,6 +1,6 @@
-import Head from 'next/head';
+import Head from 'next/head'
 
-import Back from "components/back";
+import Back from 'components/back'
 
 const Layout = ({ children, meta }) => {
   return (
@@ -18,13 +18,15 @@ const Layout = ({ children, meta }) => {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.cardImage} />
-        <link rel="preload" href="https://unpkg.com/prismjs@1.23.0/themes/prism-tomorrow.css" rel="stylesheet" />
+        <link
+          rel="preload"
+          href="https://unpkg.com/prismjs@1.23.0/themes/prism-tomorrow.css"
+          rel="stylesheet"
+        />
       </Head>
       <div className="post">
         <Back url="/blog" />
-        <article
-          dangerouslySetInnerHTML={{ __html: children }}
-        />
+        <article dangerouslySetInnerHTML={{ __html: children }} />
       </div>
       <style jsx>{`
         .post {
@@ -46,13 +48,26 @@ const Layout = ({ children, meta }) => {
         }
 
         :global(.icon_back) {
-          position:sticky;
+          position: sticky;
           top: 80px;
+        }
+        article :global(h1) {
+          margin-bottom: 20px;
+        }
+
+        article :global(p) {
+          line-height: 2.8rem;
+          margin-bottom: 20px;
+        }
+
+        article :global(a),
+        article :global(a:visited) {
+          color: var(--primary);
+          text-decoration: underline;
         }
       `}</style>
     </>
-  );
+  )
 }
-
 
 export default Layout
