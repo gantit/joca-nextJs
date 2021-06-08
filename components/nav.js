@@ -13,6 +13,7 @@ import Sun from 'assets/icons/sun'
 import Portfolio from 'assets/icons/portfolio'
 
 import useDarkMode from 'hooks/useDarkMode'
+import LangSelector from './langSelector'
 
 const Nav = () => {
   const { pathname } = useRouter()
@@ -37,6 +38,7 @@ const Nav = () => {
             </a>
           </Link>
         </li>
+        {pathname.includes('/me') && <LangSelector />}
         <li>
           <MenuBtn isOpenMenu={!isOpenMenu} setOpenMenu={handleMenu} />
           <ul className="menuIcon" onClick={handleMenu}>

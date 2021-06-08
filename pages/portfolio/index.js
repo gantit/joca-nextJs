@@ -4,7 +4,7 @@ import { getAllDocs } from 'lib/docs'
 import Back from 'components/back'
 import ListItem from 'components/listItem'
 
-const Doc = ({ slugs }) => {
+const Doc = () => {
   return (
     <div className="posts">
       <Back url="/" />
@@ -57,17 +57,6 @@ const Doc = ({ slugs }) => {
       `}</style>
     </div>
   )
-}
-
-export const getStaticProps = async ({ params }) => {
-  const docs = getAllDocs()
-  const slugs = docs.map(({ slug, meta }) => ({ slug, meta }))
-
-  return {
-    props: {
-      slugs
-    }
-  }
 }
 
 export default Doc
