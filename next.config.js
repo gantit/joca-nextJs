@@ -3,7 +3,9 @@ module.exports = {
     if (isServer) {
       require('./lib/generate-sitemap')
     }
-
+    config.node = {
+      fs: 'empty'
+    }
     return config
   },
   future: {
