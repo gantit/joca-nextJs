@@ -9,8 +9,6 @@ import LangSelector from 'components/langSelector'
 
 const Me = ({ t }) => (
   <>
-    {console.log(t)}
-
     <Head title={t.titleSeo} description={t.descriptionSeo} />
     <div className="me">
       <section className="header">
@@ -282,7 +280,6 @@ const Me = ({ t }) => (
 export async function getStaticProps({ locale }) {
   const response = await import(`../locales/${locale}.json`)
   const locales = response.default.me
-  console.log(locales)
 
   return { props: { t: locales } }
 }

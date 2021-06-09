@@ -18,6 +18,7 @@
     "download-today-status": "node scripts/get-today-status.js —-input-type=module"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^10.2.3",
     "chrome-aws-lambda": "^8.0.2",
     "csvtojson": "^2.0.10",
     "globby": "^11.0.2",

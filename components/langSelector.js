@@ -4,7 +4,6 @@ const langSelector = () => {
   const router = useRouter()
 
   const changeLang = (e) => {
-    console.log('value', e.target.value)
     router.push(router.pathname, router.pathname, {
       locale: e.target.value
     })
