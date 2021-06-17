@@ -5,7 +5,6 @@ import Expreience from 'components/experience'
 import Head from 'components/head'
 
 import Chating from 'assets/img/chating'
-import LangSelector from 'components/langSelector'
 
 const Me = ({ t }) => (
   <>
@@ -277,7 +276,7 @@ const Me = ({ t }) => (
   </>
 )
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({ locale = 'es', ...props }) {
   const response = await import(`../locales/${locale}.json`)
   const locales = response.default.me
 

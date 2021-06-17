@@ -1,15 +1,19 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true'
-})
-const nextConfig = {
+module.exports = {
   webpack: (config, { isServer }) => {
-    if (isServer) {
-      require('./lib/generate-sitemap')
+    if (!isServer) {
+      config.resolve.fallback.fs = false
     }
+
     return config
   },
-  i18n: { locales: ['en', 'es', 'ca'], defaultLocale: 'es' },
-  future: { webpack5: true }
+  future: {
+    webpack5: true
+  },
+  fallback: {
+    fs: false
+  },
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'es'
+  }
 }
-
-module.exports = withBundleAnalyzer(nextConfig)
