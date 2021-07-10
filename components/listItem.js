@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 
-const ListItem = ({ title, description }) => {
+const ListItem = ({ title, description, highlighted }) => {
   const hover = useRef()
   const [wordWidth, setWordWidth] = useState(hover?.current?.offsetWidth || 0)
 
@@ -54,10 +54,14 @@ const ListItem = ({ title, description }) => {
           border-right: 1px solid transparent;
           overflow: hidden;
           position: relative;
+
+          ${highlighted && 'background: var(--black);'};
+          ${highlighted && 'border-radius: 5px;'};
         }
         article p,
         article h1 {
           transition: all 0.3s ease;
+          color: ${highlighted && 'var(--primary);'};
         }
         article:hover {
           border-left-color: var(--primary);

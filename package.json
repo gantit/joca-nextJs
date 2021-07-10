@@ -21,6 +21,8 @@
     "@next/bundle-analyzer": "^10.2.3",
     "chrome-aws-lambda": "^8.0.2",
     "csvtojson": "^2.0.10",
+    "firebase": "^8.7.0",
+    "firebase-admin": "^9.10.0",
     "globby": "^11.0.2",
     "gray-matter": "^4.0.2",
     "logrocket": "^1.2.1",
