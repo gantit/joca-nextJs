@@ -105,6 +105,8 @@ const Nav = () => {
 
       <style jsx>{`
         .darkMode {
+          align-items: center;
+          display: flex;
           margin-left: 50px;
         }
         :global(svg.darkMode) {

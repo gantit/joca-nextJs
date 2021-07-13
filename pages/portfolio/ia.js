@@ -6,17 +6,21 @@ import OpenIAicon from 'assets/icons/openIA'
 import Likeicon from 'assets/icons/like'
 import Dislikeicon from 'assets/icons/dislike'
 
+import useLocalStorage from 'hooks/useLocalStoage'
+
 const Home = () => {
   const [ideas, setIdeas] = useState(null)
-  const [lastIdea, setlastIdea] = useState(null)
+  const [newIdea, setNewIdea] = useState(null)
   const [isLoading, setLoading] = useState(false)
+  const [votedList, setVotedList] = useLocalStorage('voted', '')
 
   const getData = async () => {
     const res = await fetch('/api/getIdeas')
     const { ideasList } = await res.json()
-    const [newIdea, ...rest] = ideasList
+    const removed = ideasList.filter((item) => !votedList.includes(item.id))
+    const [newIdea, ...rest] = removed
     setIdeas(rest)
-    setlastIdea(newIdea)
+    setNewIdea(newIdea)
   }
 
   const removeId = async (id) => {
@@ -31,17 +35,18 @@ const Home = () => {
     setLoading(false)
   }
 
-  const likeIdea = async (idea) => {
+  const voteIdea = async (idea) => {
     setLoading(true)
-    await updateIdea({ ...idea, likes: true })
-    await getData()
-    setLoading(false)
-  }
+    await updateIdea(idea)
+    if (ideas && !votedList.includes(newIdea?.id)) {
+      const newVotedList = [...votedList, newIdea?.id]
+      const removed = ideas.filter((item) => !newVotedList.includes(item.id))
+      const [nextIdea, ...rest] = removed
+      setIdeas(rest)
+      setNewIdea(nextIdea)
+      setVotedList(newVotedList)
+    }
 
-  const dislikeIdea = async (idea) => {
-    setLoading(true)
-    await updateIdea({ ...idea, dislikes: true })
-    await getData()
     setLoading(false)
   }
 
@@ -56,57 +61,35 @@ const Home = () => {
         <h1 className="title">Es idea de una IA </h1>
 
         <div className="row">
-          {lastIdea && (
-            <div className="card">
-              <h3>{lastIdea.text}</h3>
-              <button disabled={isLoading} onClick={addIdea}>
-                {isLoading ? 'cargando' : 'add idea'}
-              </button>
+          {newIdea && (
+            <div className="card" id={newIdea.id}>
+              <h3>{newIdea.text}</h3>
 
               <div className="footer">
                 <OpenIAicon className="openIA" />
                 <p>
                   <Likeicon
                     className="icon"
-                    onClick={() => likeIdea(lastIdea)}
-                  />{' '}
-                  {lastIdea.likes}
+                    onClick={() => voteIdea({ ...newIdea, likes: true })}
+                  />
+                  {newIdea.likes}
                   <Dislikeicon
                     className="icon"
-                    onClick={() => dislikeIdea(lastIdea)}
+                    onClick={() => voteIdea({ ...newIdea, dislikes: true })}
                   />
-                  {lastIdea.dislikes}
+                  {newIdea.dislikes}
                 </p>
+                <button onClick={() => removeId(newIdea.id)}>remove</button>
               </div>
             </div>
           )}
-        </div>
-        <div className="row list">
-          {ideas &&
-            ideas.map((idea) => (
-              <div className="card" key={idea.id}>
-                <h3>{idea.text}</h3>
-                <div className="footer">
-                  <OpenIAicon className="openIA" />
-                  <p>
-                    <Likeicon className="icon" onClick={() => likeIdea(idea)} />{' '}
-                    {idea.likes}
-                    <Dislikeicon
-                      className="icon"
-                      onClick={() => dislikeIdea(idea)}
-                    />
-                    {idea.dislikes}
-                  </p>
-                </div>
-              </div>
-            ))}
         </div>
       </div>
 
       <style jsx>{`
         .hero {
           width: 100%;
-          color: var(--balck);
+          color: var(--black);
         }
 
         .title {
@@ -131,9 +114,13 @@ const Home = () => {
           align-items: center;
         }
 
-        .list {
-          flex-direction: column;
-          align-items: center;
+        .older {
+          align-content: center;
+          align-items: stretch;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
         }
 
         .card {

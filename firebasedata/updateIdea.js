@@ -10,7 +10,6 @@ const updateIdea = ({
   text,
   visible
 }) => {
-  console.log({ likes, dislikes })
   const data = {
     text,
     likes: firebase.firestore.FieldValue.increment(likes === true ? 1 : 0),
